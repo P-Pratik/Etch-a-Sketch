@@ -1,0 +1,30 @@
+html{
+    color: white;
+    background-color: rgb(34, 34, 34);
+}
+
+div{
+    background-color: grey;
+}
+
+.grid{
+    margin: auto;
+    padding: 0;
+    width: 800px;
+    display: flex;
+    flex-direction: column ;
+}
+
+.row{
+    background-color: rgb(53, 24, 24);
+    display: flex;
+    flex: 1;
+    flex-basis: 50px;
+}
+
+.column{
+    margin: 0;
+    flex:1;
+    background-color: black;
+    flex-basis: 50px;
+}
