@@ -1,7 +1,7 @@
 let boxGrid = document.querySelector('#boxgrid');
 let color = 'black';
 let size = 10; 
-const blocksize = 960; 
+const windowSize = 600; 
 
 let eraser = document.querySelector('#eraser');
 let colorSelection = document.querySelector('#colorSelect');
@@ -11,18 +11,20 @@ let clearBtn = document.querySelector('#clearbtn');
 let sliderIp = document.querySelector('#gridDimension');
 let sliderOp = document.querySelector('#rangeDisplay');
 
-function createGrid(displaysize,size){
+function createGrid(windowSize,size){
+    boxGrid.style.flexBasis = `${windowSize}px`;
+    boxGrid.style.minHeight = `${windowSize}px`;
     for(let i = 0; i < size ; i++ ){
         let rowElement = document.createElement('div');
         rowElement.classList.add('row');    
-        rowElement.style.minHeight = `${Math.floor(displaysize/size)}px`;
+        rowElement.style.minHeight = `${Math.floor(windowSize/size)}px`;
         boxGrid.append(rowElement);
     
         for(let j =0 ; j < size ; j++){
             let columnElement = document.createElement('div');
             columnElement.classList.add('column');
             columnElement.setAttribute('id', 'column');
-            columnElement.style.flexBasis = `${Math.floor(displaysize/size)}px`;
+            columnElement.style.flexBasis = `${Math.floor(windowSize/size)}px`;
             rowElement.append(columnElement);
         }
     }
@@ -51,10 +53,11 @@ function randomColorGenHSV(){
 }
 
 function selectGridsize(){
-    console.log(blocksize , sliderIp.value);
+    console.log(windowSize , sliderIp.value);
     sliderOp.innerText = `${sliderIp.value}x${sliderIp.value}`;
     deleteGrid();
-    createGrid(blocksize,sliderIp.value);
+    createGrid(windowSize,sliderIp.value);
+    eventListenerById('#column','mouseenter', color);
 }
 
 function hsv_to_rgb(h, s, v) {
@@ -83,7 +86,7 @@ function hsv_to_rgb(h, s, v) {
      return `rgb(${Math.floor(r * 255)}, ${Math.floor(g * 255)}, ${Math.floor(b * 255)})`;
   }
 
-function eventListenerById(className , event, color ){
+function eventListenerById(className , event, color){
     let element = document.querySelectorAll(className);
     for (let i = 0; i < element.length; i++){
         element[i].addEventListener(event, () => {
@@ -137,6 +140,6 @@ sliderIp.addEventListener('input', () => {
     selectGridsize();    
 });
 
-createGrid(blocksize, size);
+createGrid(windowSize, size);
 
 eventListenerById('#column','mouseenter', color);

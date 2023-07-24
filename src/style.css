@@ -84,8 +84,6 @@ button:hover {
     padding: 50px;
     flex: 0;
     flex-shrink: 0;
-    flex-basis: 960px;
-    min-height: 960px;
     display: flex;
     flex-direction: column;
 }
