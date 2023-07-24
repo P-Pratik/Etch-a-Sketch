@@ -1,22 +1,28 @@
 let boxGrid = document.querySelector('#boxgrid');
 let color = 'black';
+let size = 10; 
+const blocksize = 960; 
 
 let eraser = document.querySelector('#eraser');
 let colorSelection = document.querySelector('#colorSelect');
 let randomColorbtn = document.querySelector('#randomcolor');
 let rainbowbtn = document.querySelector('#rainbow');
 let clearBtn = document.querySelector('#clearbtn');
+let sliderIp = document.querySelector('#gridDimension');
+let sliderOp = document.querySelector('#rangeDisplay');
 
-function createGrid(size){
+function createGrid(displaysize,size){
     for(let i = 0; i < size ; i++ ){
         let rowElement = document.createElement('div');
-        rowElement.classList.add('row');
+        rowElement.classList.add('row');    
+        rowElement.style.minHeight = `${Math.floor(displaysize/size)}px`;
         boxGrid.append(rowElement);
     
         for(let j =0 ; j < size ; j++){
             let columnElement = document.createElement('div');
             columnElement.classList.add('column');
             columnElement.setAttribute('id', 'column');
+            columnElement.style.flexBasis = `${Math.floor(displaysize/size)}px`;
             rowElement.append(columnElement);
         }
     }
@@ -42,6 +48,13 @@ function randomColorGenHSV(){
 
     let rgbconv = hsv_to_rgb(h,s,v);
     return rgbconv;
+}
+
+function selectGridsize(){
+    console.log(blocksize , sliderIp.value);
+    sliderOp.innerText = `${sliderIp.value}x${sliderIp.value}`;
+    deleteGrid();
+    createGrid(blocksize,sliderIp.value);
 }
 
 function hsv_to_rgb(h, s, v) {
@@ -120,7 +133,10 @@ clearBtn.addEventListener('click', () => {
     clearscreen();
 })
 
+sliderIp.addEventListener('input', () => {
+    selectGridsize();    
+});
 
+createGrid(blocksize, size);
 
-createGrid(16);
 eventListenerById('#column','mouseenter', color);
