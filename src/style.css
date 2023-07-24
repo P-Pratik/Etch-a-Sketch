@@ -1,9 +1,9 @@
-html{
+html {
     color: white;
     background-color: rgb(34, 34, 34);
 }
 
-.heading{
+.heading {
     margin-top: 20px;
 }
 
@@ -11,16 +11,16 @@ html{
     text-align: center;
     font-size: 50px;
     font-weight: 700;
-    margin:0;
+    margin: 0;
 }
 
-.main{
+.main {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
-.selection{
+.selection {
     max-width: 250px;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@ html{
 }
 
 .selection button {
+    margin: auto;
     height: 40px;
     width: 200px;
     border: solid black 2px;
@@ -40,11 +41,27 @@ html{
     border-radius: 10px;
 }
 
-.gridDimension{
-    -webkit-appearance: none;
+.colorchange {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.colorchange p,
+.colorchange input {
+    margin: 0;
+    flex: 1;
+}
+
+button:hover {
+    background-color: rgba(192, 244, 228, 0.8);
+    border-color: rgb(0, 0, 0);
+}
+
+.gridDimension {
     width: 200px;
     height: 15px;
-    border-radius: 5px;  
+    border-radius: 5px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -52,18 +69,17 @@ html{
     transition: opacity .2s;
 }
 
-.gridDimension::-webkit-slider-thumb{
+.gridDimension::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
     height: 25px;
-    border-radius: 50%; 
+    border-radius: 50%;
     background: #04AA6D;
     cursor: pointer;
 }
 
-
-.grid{
+.grid {
     margin: auto;
     padding: 50px;
     flex: 0;
@@ -74,14 +90,14 @@ html{
     flex-direction: column;
 }
 
-.row{
+.row {
     display: flex;
     flex: 1;
 }
 
-.column{
+.column {
     outline: dashed rgba(0, 0, 0, 0.1) 1px;
     margin: 0;
-    flex:1;
+    flex: 1;
     background-color: white;
 }
