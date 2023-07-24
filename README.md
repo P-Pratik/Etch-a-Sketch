@@ -2,6 +2,7 @@
 
 Etch-A-Sketch is a simple web application that allows users to draw and create art on a grid canvas. The application provides various features for drawing and customization, making it a fun tool for artistic expression and creativity.
 
+View Deployment = https://p-pratik.github.io/Etch-a-Sketch/
 ## Features
 
 1. **Color Selection**: Choose a color from the color picker or select the "Rainbow" option to use a random color with each stroke.
